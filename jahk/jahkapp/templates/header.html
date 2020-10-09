@@ -17,7 +17,7 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <form method="POST">
           {% csrf_token %}
-          {{form.as_p}}
+          
           {% include 'jahkapp/includes/navbaritems.html' %}
         <!--{% if user.is_authenticated %}
             <li><a href="/account">{{user.username|title}}</a></li>
