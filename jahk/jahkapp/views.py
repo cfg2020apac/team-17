@@ -84,3 +84,6 @@ def dashboard(request):
                 messages.error(request, f"{msg}: {form.errors[msg]}")
     form = DashboardForm
     return render(request, "jahkapp/dashboard.html", {"form":form})
+
+def rewards(request):
+    return render(request, "jahkapp/rewards.html", {})
