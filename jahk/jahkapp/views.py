@@ -6,6 +6,8 @@ from django.contrib import messages
 from dashboard.models import Course
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import NewUserForm
+from django.contrib.auth import logout, authenticate, login
+from django.shortcuts import render, redirect
 
 def homepage(request):
     return render(request = request,
@@ -32,6 +34,10 @@ def login_request(request):
                     template_name = "jahkapp/login.html",
                     context={"form":form})
 
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("jahkapp:homepage")
 
 def register(request):
     if request.method == "POST":
@@ -41,7 +47,7 @@ def register(request):
             username = form.cleaned_data.get('username')
             messages.success(request, f"New account created: {username}")
             login(request, user)
-            return redirect("main:homepage")
+            return redirect("jahkapp:homepage")
 
         else:
             for msg in form.error_messages:
