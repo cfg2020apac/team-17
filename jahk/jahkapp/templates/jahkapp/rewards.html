@@ -1,7 +1,7 @@
 {% extends 'header.html' %}
 
 {% block content %}
-I am quite lazy to add a UI! Go admin for data processing! <br/>
+<!--I am quite lazy to add a UI! Go admin for data processing! <br/>
 
 The three attributes are: <br/>
 
@@ -11,5 +11,83 @@ points: amount of points involved <br/>
 
 time: the moment the reward is granted <br/>
 
-'Daily/weekly achievements' should be able to be retrieved by querying on various time intervals.
+'Daily/weekly achievements' should be able to be retrieved by querying on various time intervals.-->
+
+<!-- Added with col-lg-10 -->
+<div class="dashboard-tag">
+    <div class="container-fluid">
+      <div class="row">
+        <h4 class="one standard-margins" style="text-align: center;">My Reward Points</h4>
+      </div>
+    </div>
+
+    <!-- User Management Table Content-->
+      <table class="table-usermanagement mx-auto container-border-ads" id="myTable" style="width: 100%; text-align: center;">
+        <thead class="thread-light">
+          <tr id="table-heading">
+            <th style="text-align: center;">Event Participated</th>
+            <th style="text-align: center;">Date</th>
+            <th style="text-align: center;">Points Collected</th>
+            <th style="text-align: center;">Previous Points</th>
+            <th style="text-align: center;">Status</th>
+            <th style="text-align: center;">My Total Points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="user-content-table mx-auto">
+            <td style="text-align: center;">Innovation Camp 2019</td>                
+            <td style="text-align: center;"><time datetime="1914-12-20T08:00">2020/07/20</time></td>
+            <td style="text-align: center;">35</td>
+            <td style="text-align: center;">64</td>
+            <td style="text-align: center;">Good Progress</td>
+            <td style="text-align: center;">99</td>
+          </tr>
+        </tbody>
+        <tbody>
+            <tr class="user-content-table mx-auto">
+              <td style="text-align: center;">Innovation Camp 2019</td>                
+              <td style="text-align: center;"><time datetime="1914-12-20T08:00">2020/07/20</time></td>
+              <td style="text-align: center;">35</td>
+              <td style="text-align: center;">64</td>
+              <td style="text-align: center;">Good Progress</td>
+              <td style="text-align: center;">99</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="user-content-table mx-auto">
+              <td style="text-align: center;">Innovation Camp 2019</td>                
+              <td style="text-align: center;"><time datetime="1914-12-20T08:00">2020/07/20</time></td>
+              <td style="text-align: center;">35</td>
+              <td style="text-align: center;">64</td>
+              <td style="text-align: center;">Good Progress</td>
+              <td style="text-align: center;">99</td>
+            </tr>
+          </tbody>
+          <tbody>
+            <tr class="user-content-table mx-auto">
+              <td style="text-align: center;">Innovation Camp 2019</td>                
+              <td style="text-align: center;"><time datetime="1914-12-20T08:00">2020/07/20</time></td>
+              <td style="text-align: center;">35</td>
+              <td style="text-align: center;">64</td>
+              <td style="text-align: center;">Good Progress</td>
+              <td style="text-align: center;">99</td>
+            </tr>
+          </tbody>
+
+      </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" style="float: right; margin-top: 15px;">
+        <a href="#">&laquo; Previous</a>
+        <a href="#" class="active">1</a>
+        <a href="#" style="border-right: 1px solid white;">2</a>
+        <a href="#" style="border-right: 1px solid white;">3</a>
+        <a href="#" style="border-right: 1px solid white;">4</a>
+        <a href="#">Next &raquo; </a>
+      </div>
+      <!-- Pagination Ends -->
+      
+    </div>
+  </div> 
 {% endblock %}
