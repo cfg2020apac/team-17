@@ -1,17 +1,39 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Event
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import NewUserForm
 
 def homepage(request):
     return render(request = request,
                   template_name='jahkapp/home.html',
                   context = {"event":Event.objects.all})
 
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request=request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}")
+                return redirect('/')
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request = request,
+                    template_name = "jahkapp/login.html",
+                    context={"form":form})
+
+
 def register(request):
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
+        form = NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
@@ -27,7 +49,7 @@ def register(request):
                           template_name = "jahkapp/register.html",
                           context={"form":form})
 
-    form = UserCreationForm
+    form = NewUserForm
     return render(request = request,
                   template_name = "jahkapp/register.html",
                   context={"form":form})
