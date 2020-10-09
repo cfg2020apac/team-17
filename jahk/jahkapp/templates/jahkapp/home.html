@@ -1,0 +1,6 @@
+{% for myevent in event %}
+    <p>{{myevent.event_title}}</p>
+    <p>{{myevent.event_published}}</p>
+    <p>{{myevent.event_content | safe}}</p>
+    <br><br>
+{% endfor %}
