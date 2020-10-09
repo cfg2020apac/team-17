@@ -38,10 +38,13 @@ class DashboardForm(ModelForm):
     class Meta:
         model = Course
         fields = ["intro", "duration", "points", "instructor"]
-        labels = {"intro": "Introduction",
-                  "duration": "Duration",
-                  "points": "Points upon completion",
-                  "instructor": "Instructor"}
+        labels = {
+            "intro": "Introduction",
+            "duration": "Duration (in seconds)",
+            "points": "Points upon completion",
+            "instructor": "Instructor"
+        }
+
 
 def dashboard(request):
     if request.method == "POST":
@@ -49,8 +52,7 @@ def dashboard(request):
         if form.is_valid():
             user = form.save()
         else:
-            for msg in form.error_messages:
-                messages.error(request, f"{msg}: {form.error_messages[msg]}")
-
+            for msg in form.errors:
+                messages.error(request, f"{msg}: {form.errors[msg]}")
     form = DashboardForm
     return render(request, "jahkapp/dashboard.html", {"form":form})
