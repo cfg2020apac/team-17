@@ -13,13 +13,30 @@
     </head>
     <body>
         {% load static %} 
-        <img src={% static '/jahk/jahkapp/templates/jahkapp/icon1.jpg' %}>
-        {% for myevent in event %}
+        <img src="/jahk/jahkapp/templates/jahkapp/icon1.jpg">
+        <section>
+            <header style="color: green;"><h6><u><b>JA Innovation Camp is a full-day</b></u></h6></header>
+            <p style="border: 3px solid green; padding: 10px; text-align: justify;"> JA experiential program that builds STEM and soft skills 
+                (creativity, entrepreneurial mindset, teamwork and problem solving) of students, and inspire 
+                them to apply their learnings to develop a solution for a problem that they identify in their 
+                communities through team exercise, prototyping and presentation. Students will be motivated to take 
+                initiatives to find innovative solutions to real-life problems and contribute to the community.</p>
+        </section>
+        <section>
+            <header style="color: green;"><h6><u><b>JA Personal Spending</b></u></h6></header>
+            <p style="border: 3px solid green; padding: 10px; text-align: justify;">The program helps students 
+                develop a responsible attitude towards personal spending. Business volunteers share with the 
+                students their financial management experiences to help students understand the concepts of income, 
+                saving, expense, donation, budget and differentiate between “needs” and “wants”.</p>
+        </section>
+         
+
+        <!--{% for myevent in event %}
         <p>{{myevent.event_title}}</p>
         <p>{{myevent.event_published}}</p>
         <p>{{myevent.event_content | safe}}</p>
         <br><br>
-    {% endfor %}
+    {% endfor %}-->
     </body>
     {% endblock %}
 </html>
