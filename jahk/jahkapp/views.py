@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.forms import ModelForm
 from .models import Event
 from django.contrib import messages
+from dashboard.models import Course
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import NewUserForm
 from django.contrib.auth import logout, authenticate, login
@@ -59,3 +61,26 @@ def register(request):
     return render(request = request,
                   template_name = "jahkapp/register.html",
                   context={"form":form})
+
+class DashboardForm(ModelForm):
+    class Meta:
+        model = Course
+        fields = ["intro", "duration", "points", "instructor"]
+        labels = {
+            "intro": "Introduction",
+            "duration": "Duration (in seconds)",
+            "points": "Points upon completion",
+            "instructor": "Instructor"
+        }
+
+
+def dashboard(request):
+    if request.method == "POST":
+        form = DashboardForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+        else:
+            for msg in form.errors:
+                messages.error(request, f"{msg}: {form.errors[msg]}")
+    form = DashboardForm
+    return render(request, "jahkapp/dashboard.html", {"form":form})
