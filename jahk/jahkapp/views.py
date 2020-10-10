@@ -87,3 +87,6 @@ def dashboard(request):
 
 def rewards(request):
     return render(request, "jahkapp/rewards.html", {})
+
+def account(request):
+    return render(request, "jahkapp/account.html", {})
