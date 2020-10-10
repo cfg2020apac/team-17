@@ -1,0 +1,80 @@
+{% extends 'header.html' %}
+
+{% block content %}<!--
+<br>
+<div class='container'>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Add a course</button>
+    </form>
+</div>-->
+
+<div class="dashboard-tag">
+    <div class="container-fluid">
+      <div class="row">
+        <h4 class="one standard-margins" style="text-align: center;">My Dashboard</h4>
+      </div>
+    </div>
+
+    <!-- User Management Table Content-->
+      <table class="table-usermanagement mx-auto container-border-ads" id="myTable" style="width: 100%; text-align: center;">
+        <thead class="thread-light">
+          <tr id="table-heading">
+            <th style="text-align: center;">Name</th>
+            <th style="text-align: center;">Date of Birth</th>
+            <th style="text-align: center;">Country</th>
+            <th style="text-align: center;">Past Events</th>
+            <th style="text-align: center;">Points Earned</th>
+            <th style="text-align: center;">User Status</th>
+            <th style="text-align: center;">Contact</th>
+            <th style="text-align: center;">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="user-content-table mx-auto">
+            <td style="text-align: center;">Ken Wong</td>                
+            <td style="text-align: center;"><time datetime="1914-12-20T08:00">2000/07/20</time></td>
+            <td style="text-align: center;">Hong Kong</td>
+            <td style="text-align: left;">1. Innovation Camp <br> 2. Brainstorm Tomorrow <br> 3. Collective Action</td>
+            <td style="text-align: center;">99</td>
+            <td style="text-align: center;">Active</td>
+            <td style="text-align: center;">+852-888888XX</td>
+            <td style="text-align: center;">ken@gmail.com</td>
+          </tr>
+        </tbody>
+        <tbody>
+            <tr class="user-content-table mx-auto">
+              <td style="text-align: center;" colspan="4"><button style="padding: 5px;">Update Details </button></td>  
+              <td style="text-align: center;" colspan="4"><button style="padding: 5px;">Delete Account</button></td>  
+
+            </tr>
+          </tbody>
+      </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" style="float: right; margin-top: 15px;">
+        <a href="#">&laquo; Previous</a>
+        <a href="#" class="active">1</a>
+        <a href="#" style="border-right: 1px solid white;">2</a>
+        <a href="#" style="border-right: 1px solid white;">3</a>
+        <a href="#" style="border-right: 1px solid white;">4</a>
+        <a href="#">Next &raquo; </a>
+      </div>
+      <!-- Pagination Ends -->
+      
+    </div>
+  </div> 
+
+<br>
+<br>
+<header style="text-align: center;"><h5>Add New Course</h5></header>
+  <div class='container' style="width: 30%; margin: 0 auto;">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Add a course</button>
+    </form>
+</div>
+{% endblock %}

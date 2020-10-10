@@ -12,16 +12,21 @@
 <body>
 
   <nav>
-    <div class="nav-wrapper"
-      <a href="/" class="brand-logo">JAHK</a>
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Junior Achievement Hong Kong</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        {% if user.is_authenticated %}
+        <form method="POST">
+          {% csrf_token %}
+          
+          {% include 'jahkapp/includes/navbaritems.html' %}
+        <!--{% if user.is_authenticated %}
             <li><a href="/account">{{user.username|title}}</a></li>
             <li><a href="/logout">Logout</a></li>
         {% else %}
             <li><a href="/login">Login</a></li>
             <li><a href="/register">Register</a></li>
-        {% endif %}
+        {% endif %}-->
+        </form>
       </ul>
     </div>
   </nav>
